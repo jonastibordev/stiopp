@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Képek forrásainak listája
   const imageSources = [
-    './pictures/header_logo1.png',
-    './pictures/header_logo2.png',
-    './pictures/header_logo3.png',
-    './pictures/header_logo4.png',
+    '../pictures/header_logo1.png',
+    '../pictures/header_logo2.png',
+    '../pictures/header_logo3.png',
+    '../pictures/header_logo4.png',
   ];
 
   const headerImg = document.querySelector('.header-img');
@@ -73,12 +73,12 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
   const years = Array.from({ length: 21 }, (_, i) => 2024 - i);
   const backgrounds = [
-    '/pictures/arch_book2.jpg',
-    '/pictures/arch_book3.jpg',
-    '/pictures/arch_book4.jpg',
-    '/pictures/arch_book5.jpg',
-    '/pictures/arch_book6.jpg',
-    '/pictures/arch_book7.jpg',
+    '../pictures/arch_book2.jpg',
+    '../pictures/arch_book3.jpg',
+    '../pictures/arch_book4.jpg',
+    '../pictures/arch_book5.jpg',
+    '../pictures/arch_book6.jpg',
+    '../pictures/arch_book7.jpg',
   ];
 
   years.forEach((year, index) => {
