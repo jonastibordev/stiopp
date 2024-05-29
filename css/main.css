@@ -215,7 +215,7 @@ a {
 footer {
   text-align: center; /* Kép középre igazítása */
   margin-top: 20px; /* 20px távolság a body-tól */
-  background-image: url(./pictures/book2.jpg);
+  background-image: url(../pictures/book2.jpg);
   margin-top: 100px;
   border-right: 10px groove grey;
   border-left: 10px groove gray;
