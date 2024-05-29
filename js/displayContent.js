@@ -1,84 +1,14 @@
 'use strict';
-/* ...........................................................................Header menürendszer, lenyíló menük készítése... menühöz...*/
-document.querySelectorAll('nav a').forEach((link) => {
-  link.addEventListener('click', function (event) {
-    event.preventDefault(); // Megakadályozza a link alapértelmezett működését
-
-    // Törölje az összes menüpontra vonatkozóan a .selected osztályt
-    document.querySelectorAll('nav a').forEach((item) => {
-      item.classList.remove('selected');
-    });
-
-    // Adjuk hozzá a kattintott elemhez a .selected osztályt
-    this.classList.add('selected');
-
-    // Az anchor elem href attribútumának értéke
-    const target = this.getAttribute('href');
-
-    // A cél elem kiválasztása
-    const targetElement = document.querySelector(target);
-
-    // A h2 elem kiválasztása az adott szakaszon belül
-    const headingElement = targetElement.querySelector('h2');
-
-    // Meghatározzuk a header magasságát
-    const headerHeight = document.querySelector('header').offsetHeight;
-
-    // Görgetés a kiválasztott szakaszhoz úgy, hogy a h2 elem 20px-el legyen a header alatt
-    window.scrollTo({
-      top: targetElement.offsetTop - headerHeight - 50,
-      behavior: 'smooth', // Sima görgetési animáció
-    });
-  });
-});
-
-// ........................................................................Header kép (Stioppi felirat) animálása, szín váltás
-document.addEventListener('DOMContentLoaded', function () {
-  // Az időköz, amikor a kép váltakozik (ms-ben)
-  const interval = 10000; // 5 másodperc
-
-  // Képek forrásainak listája
-  const imageSources = [
-    './pictures/header_logo1.png',
-    './pictures/header_logo2.png',
-    './pictures/header_logo3.png',
-    './pictures/header_logo4.png',
-  ];
-
-  const headerImg = document.querySelector('.header-img');
-  let currentIndex = 0;
-
-  // Függvény a kép változtatására
-  function changeImage() {
-    // Csökkentsük az átlátszóságot
-    headerImg.style.opacity = 0;
-
-    // Várjunk egy rövid időt, mielőtt beállítanánk az új kép forrását
-    setTimeout(() => {
-      headerImg.src = imageSources[currentIndex];
-      currentIndex = (currentIndex + 1) % imageSources.length; // Következő indexre ugrás, ciklikusan
-      // Visszaállítjuk az átlátszóságot
-      headerImg.style.opacity = 1;
-    }, 900); // 300 milliszekundum (vagyis 0.3 másodperc) várakozás
-  }
-
-  // Első kép beállítása
-  changeImage();
-
-  // Időzítő létrehozása a kép váltakozásához
-  setInterval(changeImage, interval);
-});
-
 /* ...........................................................................Archívum menüben lévő könyvespolc, könyvek működése...*/
 document.addEventListener('DOMContentLoaded', function () {
   const years = Array.from({ length: 21 }, (_, i) => 2024 - i);
   const backgrounds = [
-    './pictures/arch_book2.jpg',
-    './pictures/arch_book3.jpg',
-    './pictures/arch_book4.jpg',
-    './pictures/arch_book5.jpg',
-    './pictures/arch_book6.jpg',
-    './pictures/arch_book7.jpg',
+    '../pictures/arch_book2.jpg',
+    '../pictures/arch_book3.jpg',
+    '../pictures/arch_book4.jpg',
+    '../pictures/arch_book5.jpg',
+    '../pictures/arch_book6.jpg',
+    '../pictures/arch_book7.jpg',
   ];
 
   years.forEach((year, index) => {
@@ -98,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
-
 function displayContent(bookId) {
   switch (bookId) {
     case 'book1':
@@ -110,13 +39,11 @@ function displayContent(bookId) {
       alert('Nincs ilyen könyv');
   }
 }
-
 /* ........................................................................................................................Gomb a lap tetejére...*/
 // Amikor a felhasználó elkezd görgetni, ellenőrizzük, hogy megjelenítsük-e a gombot
 window.onscroll = function () {
   scrollFunction();
 };
-
 function scrollFunction() {
   if (
     document.body.scrollTop > 580 ||
@@ -127,19 +54,16 @@ function scrollFunction() {
     document.getElementById('scrollToTopBtn').style.display = 'none';
   }
 }
-
 // Amikor a gombra kattintanak, görgetjük a lap tetejére
 document
   .getElementById('scrollToTopBtn')
   .addEventListener('click', function () {
     scrollToTop();
   });
-
 function scrollToTop() {
   document.body.scrollTop = 0; // Firefox és Chrome
   document.documentElement.scrollTop = 0; // IE, Edge, Safari
 }
-
 /* ........................................................................................................................Képgaléria...*/
 document.addEventListener('DOMContentLoaded', function () {
   const galleryImages = document.querySelector('.gallery-images');
@@ -164,9 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
-
 // Teljes képenyős nézet...
-
 let images = [
   '../pictures/main_01.jpg',
   '../pictures/main_02.jpg',
@@ -179,29 +101,23 @@ let images = [
   '../pictures/main_09.jpg',
   '../pictures/main_10.jpg',
 ];
-
 let currentIndex = 0;
-
 function nextImageFullScreen() {
   currentIndex = (currentIndex + 1) % images.length;
   document.getElementById('fullImage').src = images[currentIndex];
 }
-
 function prevImageFullScreen() {
   currentIndex = (currentIndex - 1 + images.length) % images.length;
   document.getElementById('fullImage').src = images[currentIndex];
 }
-
 function fullView(imagesArray, ImgLink) {
   document.getElementById('fullImage').src = ImgLink;
   document.getElementById('fullImageView').style.display = 'block';
   images = imagesArray.slice(); // Frissítsd az images tömböt az átadott tömbbel
 }
-
 function closeFullView() {
   document.getElementById('fullImageView').style.display = 'none';
 }
-
 /* ........................................................................................................................Audió galéria...*/
 // Videók generálása
 const videos = [
@@ -237,7 +153,6 @@ const videos = [
   },
   // További videók...
 ];
-
 const videoContainer = document.getElementById('videoContainer');
 videos.forEach((video) => {
   const videoHTML = `
@@ -260,7 +175,6 @@ videos.forEach((video) => {
     `;
   videoContainer.innerHTML += videoHTML;
 });
-
 // Audio elemek generálása
 const audios = [
   {
@@ -295,7 +209,6 @@ const audios = [
   },
   // További audio elemek...
 ];
-
 const audioContainer = document.getElementById('audioContainer');
 audios.forEach((audio) => {
   const audioHTML = `
@@ -315,15 +228,11 @@ audios.forEach((audio) => {
     `;
   audioContainer.innerHTML += audioHTML;
 });
-
 // Térkép beszúrása
 let cim = 'Bécsikapu tér';
-
 // Az URL enkódolása
 let encodedCim = encodeURIComponent(cim);
-
 // Az URL beállítása
 let url = 'https://www.google.com/maps/search/?api=1&query=' + encodedCim;
-
 // A link beállítása
 document.getElementById('mapLink').setAttribute('href', url);
