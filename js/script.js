@@ -265,7 +265,7 @@ videos.forEach((video) => {
 const audios = [
   {
     src: './audio/01.mp3',
-    image: '../pictures/audio_picture.jpg',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
