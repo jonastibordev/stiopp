@@ -39,10 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Képek forrásainak listája
   const imageSources = [
-    '/pictures/header_logo1.png',
-    '/pictures/header_logo2.png',
-    '/pictures/header_logo3.png',
-    '/pictures/header_logo4.png',
+    './pictures/header_logo1.png',
+    './pictures/header_logo2.png',
+    './pictures/header_logo3.png',
+    './pictures/header_logo4.png',
   ];
 
   const headerImg = document.querySelector('.header-img');
