@@ -104,7 +104,7 @@ function displayContent(bookId) {
     case 'book1':
     case 'book2':
     case 'book3':
-      window.location.href = 'http://127.0.0.1:5500/tortenet.html';
+      window.location.href = 'tortenet.html';
       break;
     default:
       alert('Nincs ilyen könyv');
@@ -168,16 +168,16 @@ document.addEventListener('DOMContentLoaded', function () {
 // Teljes képenyős nézet...
 
 let images = [
-  '../pictures/main_01.jpg',
-  '../pictures/main_02.jpg',
-  '../pictures/main_03.jpg',
-  '../pictures/main_04.jpg',
-  '../pictures/main_05.jpg',
-  '../pictures/main_06.jpg',
-  '../pictures/main_07.jpg',
-  '../pictures/main_08.jpg',
-  '../pictures/main_09.jpg',
-  '../pictures/main_10.jpg',
+  './pictures/main_01.jpg',
+  './pictures/main_02.jpg',
+  './pictures/main_03.jpg',
+  './pictures/main_04.jpg',
+  './pictures/main_05.jpg',
+  './pictures/main_06.jpg',
+  './pictures/main_07.jpg',
+  './pictures/main_08.jpg',
+  './pictures/main_09.jpg',
+  './pictures/main_10.jpg',
 ];
 
 let currentIndex = 0;
@@ -264,32 +264,32 @@ videos.forEach((video) => {
 // Audio elemek generálása
 const audios = [
   {
-    src: '/audio/01.mp3',
-    image: '/pictures/audio_picture.jpg',
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
   {
-    src: '/audio/01.mp3',
-    image: '/pictures/audio_picture.jpg',
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
   {
-    src: '/audio/01.mp3',
-    image: '/pictures/audio_picture.jpg',
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
   {
-    src: '/audio/01.mp3',
-    image: '/pictures/audio_picture.jpg',
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
   {
-    src: '/audio/01.mp3',
-    image: '/pictures/audio_picture.jpg',
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
     title: 'Mű címe',
   },
