@@ -1,17 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Whisper&display=swap');
+
 :root {
   --primary-color: #622618ff;
   --secondary-color: #3a1a0dff;
   --accent-color: #258ea6ff;
   --light-color: #f0eff4ff;
   --dark-color: rgb(0, 0, 0);
-  --background-images: '../pictures/book4.jpg';
-}
-* {
-  box-sizing: border-box;
+  --font-size-default: 2.3em;
+  --font-size-large: 3.3em;
+  --font-size-small: 1.5em;
+  --transition-duration: 1.2s;
+  --background-opacity: 0.9;
 }
 
-/* ................................................................................body minden beállítása */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0 auto;
   padding: 0;
@@ -19,7 +26,7 @@ body {
   background-color: var(--secondary-color);
   color: var(--secondary-color);
   font-family: italianno, Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 2.3em;
+  font-size: var(--font-size-default);
   position: relative;
 }
 body::after {
@@ -29,23 +36,26 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../pictures/pergamen2jpg.jpg'); /* Itt állítsd be a háttérkép elérési útját */
+  background-image: url('../pictures/pergamen2jpg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  z-index: -1; /* Háttérben */
-  opacity: 0.9; /* Opcionális: Átlátszóság beállítása */
+  z-index: -1;
+  opacity: var(--background-opacity);
   border-radius: 12px;
   border-right: 10px groove grey;
   border-left: 10px groove gray;
   box-shadow: inset -5px -5px 10px 0px rgba(250, 5, 5, 0.5),
-    5px 5px 10px 0px var(--accent-color);
+    5px 5px 10px 0px var(--accent-color),
+    inset 5px 5px 10px 2px rgba(250, 5, 5, 0.5),
+    -5px -5px 10px 2px var(--accent-color);
 }
-/* ................................................................................main minden beállítása:sorkizárt szöveg. */
+
 main {
   text-align: justify;
+  margin: 0 10px;
 }
-/* ................................................................................header minden beállítása:fixed, háttérkép, :after animálás */
+
 header {
   background-image: url(../pictures/Fontana-Maggiore-e-Palazzo-Dei-Priori-.webp);
   background-repeat: no-repeat;
@@ -56,13 +66,14 @@ header {
   width: 90%;
   z-index: 1000;
   font-size: 0.4em;
+  border-radius: 20px;
 }
 header::after {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 101%;
   height: 100%;
   background: linear-gradient(
     15deg,
@@ -74,6 +85,7 @@ header::after {
   z-index: 1;
   border-radius: 5px;
   box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
+  border-radius: 20px;
 }
 header > * {
   position: relative;
@@ -84,9 +96,9 @@ header > * {
   margin: 0 auto;
 }
 .header-img {
-  transition: opacity 2s ease; /* Áttűnés 2 másodperc alatt */
+  transition: opacity 2s ease;
 }
-/* ................................................................................navigáció minden beállítása:menük, lenyílómenük */
+
 nav ul {
   list-style-type: none;
   padding: 0px;
@@ -95,13 +107,9 @@ nav ul {
   justify-content: center;
   align-items: center;
 }
-nav li {
-  margin: 0px 5px;
-  padding: 0px;
-}
 nav a {
   display: inline-block;
-  font-size: 3.3em;
+  font-size: var(--font-size-large);
   text-decoration: none;
   background-color: transparent;
   text-align: center;
@@ -109,13 +117,13 @@ nav a {
   text-shadow: 4px 8px 15px var(--light-color);
   color: var(--secondary-color);
   font-weight: 700;
+  transition: transform var(--transition-duration);
 }
 nav a:hover {
   color: var(--accent-color);
   background-color: var(--light-color);
   opacity: 0.7;
   transform: scale(1.2, 1.5);
-  transition: transform 1.2s;
 }
 .gallery-menu .submenu {
   display: none;
@@ -123,8 +131,8 @@ nav a:hover {
   background: transparent;
   padding-bottom: 10px;
   border-radius: 5px;
-  transform: scale(0.9, 0.9);
-  transition: transform 1.2s;
+  transform: scale(0.9);
+  transition: transform var(--transition-duration);
 }
 .gallery-menu .submenu li {
   margin-left: 5px;
@@ -134,13 +142,13 @@ nav a:hover {
   display: block;
   background-color: rgba(208, 201, 201, 0.8);
 }
-/* ................................................................................section, h2, h3, p, a, img minden beállítása */
+
 section {
-  margin-bottom: 10px; /* Távolság a section-ok között */
-  position: relative; /* Az elhelyezkedés relatív a szülőelemhez */
+  margin-bottom: 10px;
+  position: relative;
 }
 section:first-of-type {
-  margin-top: 150px /* header magassága + padding */;
+  margin-top: 150px;
   padding-top: 50px;
 }
 h2 {
@@ -159,25 +167,16 @@ p {
   margin-top: 10px;
 }
 
-p::first-letter {
-  font-size: 110%; /* A kódex betűk mérete */
-  font-weight: bold; /* Félkövér stílus */
-  letter-spacing: 0.1em; /* Betűköz növelése */
-  word-spacing: 0.1em; /* Szóköz növelése */
-  text-shadow: var(--primary-color) 2px 0 10px;
-  text-transform: uppercase;
-  color: var(--accent-color);
-  background-color: rgba(255, 255, 255, 0.1);
-}
+p::first-letter,
 a::first-letter,
 h2::first-letter,
 h3::first-letter {
-  font-size: 110%; /* A kódex betűk mérete */
-  font-weight: bold; /* Félkövér stílus */
-  text-decoration: underline var(--accent-color);
-  letter-spacing: 0.1em; /* Betűköz növelése */
-  word-spacing: 0.1em; /* Szóköz növelése */
-  text-shadow: var(--primary-color) 1px 0 10px;
+  font-size: 110%;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  word-spacing: 0.1em;
+  text-shadow: var(--primary-color) 2px 0 10px;
+  text-transform: uppercase;
   color: var(--accent-color);
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -185,20 +184,20 @@ h3::first-letter {
 figure img {
   max-width: 200px;
   box-shadow: 3px 3px 5px 1px #3a1a0dff;
-  align-self: flex-start; /* Kép igazítása felfelé a flexbox konténeren belül */
+  align-self: flex-start;
   border-radius: 50%;
   text-align: center;
   float: left;
   margin-right: 30px;
   opacity: 0.6;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 figure img:hover {
   opacity: 1;
   transform: scale(1.1);
-  transition: all 1s ease-in-out;
 }
 .division {
-  margin-right: 80px; /* szövegek margójának beállítása: nagymargók kódexszerű hatás..... */
+  margin-right: 80px;
   margin-left: 80px;
   box-shadow: inset -5px -5px 17px 3px rgba(250, 5, 5, 0.3),
     5px 5px 10px 3px rgba(60, 115, 233, 0.2);
@@ -211,6 +210,82 @@ a {
   color: var(--accent-color);
   cursor: pointer;
 }
+
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 2em;
+  }
+  nav a {
+    font-size: 2.8em;
+  }
+  figure img {
+    max-width: 180px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    font-size: 1.8em;
+  }
+  nav a {
+    font-size: 2.5em;
+  }
+  figure img {
+    max-width: 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 1.5em;
+  }
+  header {
+    font-size: 0.5em;
+  }
+  nav a {
+    font-size: 2em;
+  }
+  figure img {
+    max-width: 120px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body {
+    font-size: 1.2em;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav a {
+    font-size: 1.8em;
+  }
+  figure img {
+    max-width: 100px;
+  }
+  .division {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  body {
+    font-size: 1em;
+  }
+  nav a {
+    font-size: 1.5em;
+  }
+  figure img {
+    max-width: 80px;
+  }
+  .division {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+}
+
 /* ................................................................................footer minden beállítása */
 footer {
   text-align: center; /* Kép középre igazítása */
@@ -437,6 +512,117 @@ footer img:hover {
 #nextButtonFullScreen {
   right: 10px;
 }
+
+/* Reszponzív stílusok */
+@media only screen and (max-width: 1200px) {
+  body {
+    font-size: 2em;
+  }
+
+  nav a {
+    font-size: 3em;
+  }
+
+  footer {
+    margin-top: 80px;
+    background-size: contain;
+  }
+
+  .book {
+    height: 170px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    font-size: 1.7em;
+  }
+
+  nav a {
+    font-size: 2.5em;
+  }
+
+  .division {
+    margin-right: 60px;
+    margin-left: 60px;
+  }
+
+  footer {
+    margin-top: 60px;
+    background-size: cover;
+  }
+
+  .book {
+    height: 150px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  nav ul {
+    flex-flow: column nowrap;
+  }
+
+  nav a {
+    font-size: 2.2em;
+  }
+
+  header {
+    font-size: 0.5em;
+  }
+
+  section:first-of-type {
+    margin-top: 100px;
+    padding-top: 30px;
+  }
+
+  .division {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+  footer {
+    margin-top: 40px;
+    background-size: contain;
+  }
+
+  .book {
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body {
+    font-size: 1.2em;
+  }
+
+  nav a {
+    font-size: 2em;
+  }
+
+  section:first-of-type {
+    margin-top: 70px;
+    padding-top: 20px;
+  }
+
+  .division {
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  footer {
+    margin-top: 20px;
+    background-size: cover;
+  }
+
+  .book {
+    height: 110px;
+  }
+}
+
 /* ................................................................................audió galéria minden beállítása */
 .audio-item {
   position: relative;
@@ -484,6 +670,20 @@ audio {
   background-color: transparent;
 }
 
+/* Reszponzív audió galéria */
+@media only screen and (max-width: 768px) {
+  .audio-item {
+    display: block;
+    margin-bottom: 20px;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  audio {
+    width: 100%;
+  }
+}
+
 /* ...............................................................................videó galéria minden beállítása */
 .video-container {
   display: flex;
@@ -493,7 +693,7 @@ audio {
 .video {
   position: relative;
   width: calc(20% - 20px);
-  aspect-ratio: 16 /9;
+  aspect-ratio: 16 / 9;
   margin-right: 20px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -523,12 +723,30 @@ audio {
   margin: 1px; /* Térköz a szöveg és a kép között */
 }
 
-.hover-text {
-  transition: font-size 0.5s ease; /* Átmenet a betűméret változásának animálásához */
+/* Reszponzív videó galéria */
+@media only screen and (max-width: 1200px) {
+  .video {
+    width: calc(25% - 20px);
+  }
 }
 
-.hover-text:hover {
-  font-size: 60px; /* Hover hatásra növelt betűméret */
+@media only screen and (max-width: 992px) {
+  .video {
+    width: calc(33.33% - 20px);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .video {
+    width: calc(50% - 20px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .video {
+    width: calc(100% - 20px);
+    margin-right: 0;
+  }
 }
 
 /* ...............................................................................tagok szekció minden beállítása */
@@ -613,6 +831,21 @@ h4 {
   right: 30px;
 }
 
+/* Reszponzív tagok szekció */
+@media only screen and (max-width: 768px) {
+  .members {
+    padding: 150px;
+  }
+
+  .basszus,
+  .tenor,
+  .szoprán,
+  .alt {
+    position: static;
+    margin-bottom: 20px;
+  }
+}
+
 /* ...............................................................................aktuális szekció minden beállítása */
 .card-container {
   display: flex;
@@ -638,6 +871,7 @@ h4 {
   margin-bottom: 10px;
 }
 
+/* Reszponzív kártyák */
 @media screen and (max-width: 768px) {
   .card {
     flex-basis: calc(50% - 20px); /* Két kártya egymás alatt, 20px margóval */
@@ -679,4 +913,18 @@ input[type='submit'] {
 
 input[type='submit']:hover {
   background-color: #45a049;
+}
+
+/* Reszponzív kapcsolat szekció */
+@media only screen and (max-width: 768px) {
+  input[type='text'],
+  select {
+    width: 100%;
+    padding: 10px 15px;
+  }
+
+  input[type='submit'] {
+    width: 100%;
+    padding: 12px 15px;
+  }
 }
