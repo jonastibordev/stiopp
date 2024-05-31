@@ -168,23 +168,29 @@ h3 {
 }
 
 p {
-  text-shadow: 3px -1px 2px rgba(37, 68, 187, 0.3);
+  text-shadow: 1px -1px 1px rgb(0, 51, 255);
   font-size: larger;
   margin-top: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+  text-shadow: 1px -1px 1px rgb(0, 51, 255);
 }
 
 p::first-letter,
 a::first-letter,
 h2::first-letter,
 h3::first-letter {
-  font-size: 110%;
+  font-size: 115%;
   font-weight: bold;
   letter-spacing: 0.1em;
   word-spacing: 0.1em;
   text-shadow: var(--primary-color) 2px 0 10px;
   text-transform: uppercase;
-  color: var(--accent-color);
-  background-color: rgba(255, 255, 255, 0.1);
+  color: red;
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 figure img {
@@ -257,6 +263,12 @@ a {
 }
 
 @media only screen and (max-width: 576px) {
+  .header img {
+    display: none;
+  }
+  img {
+    max-width: 50%;
+  }
   body {
     font-size: 1.2em;
   }
