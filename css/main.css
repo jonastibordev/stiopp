@@ -190,7 +190,7 @@ h3::first-letter {
   text-shadow: var(--primary-color) 2px 0 10px;
   text-transform: uppercase;
   color: red;
-  background-color: rgba(255, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 figure img {
