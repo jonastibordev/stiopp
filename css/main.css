@@ -878,6 +878,13 @@ h4 {
   right: 110px;
 }
 
+.latin {
+  position: absolute;
+  bottom: 10px;
+  font-stretch: extra-expanded;
+  font-size: 80px;
+}
+
 /* Reszponzív tagok szekció */
 @media only screen and (max-width: 768px) {
   .members {
