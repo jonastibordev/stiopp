@@ -222,3 +222,21 @@ const mapLink = document.getElementById('mapLink');
 mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   'Bécsikapu tér'
 )}`;
+
+// .......................................................................... Aktuális könyszerű lapozás
+let currentPage = 1;
+const totalPages = 4;
+
+document.getElementById('nextPage').addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    document.getElementById(`page${currentPage}`).classList.add('flipped');
+    currentPage++;
+  }
+});
+
+document.getElementById('prevPage').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    document.getElementById(`page${currentPage}`).classList.remove('flipped');
+  }
+});

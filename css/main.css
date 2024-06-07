@@ -11,6 +11,10 @@
   --font-size-small: 1.5em;
   --transition-duration: 1.2s;
   --background-opacity: 0.9;
+  --primary-box-shadow: inset -5px -5px 10px 0px rgba(226, 141, 3, 0.3),
+    5px 5px 10px 0px var(--accent-color),
+    inset 5px 5px 10px 2px rgba(221, 175, 9, 0.2),
+    -5px -5px 10px 2px var(--accent-color);
 }
 
 * {
@@ -23,7 +27,12 @@ body {
   margin: 0 auto;
   padding: 0;
   width: 94%;
-  background-color: var(--secondary-color);
+  background: linear-gradient(
+    90deg,
+    var(--secondary-color),
+    var(--light-color),
+    var(--primary-color)
+  );
   color: var(--secondary-color);
   font-family: italianno, Verdana, Geneva, Tahoma, sans-serif;
   font-size: var(--font-size-default);
@@ -43,13 +52,7 @@ body::after {
   z-index: -1;
   opacity: var(--background-opacity);
   border-radius: 12px;
-  border-right: 10px groove grey;
-  border-left: 10px groove gray;
-  box-shadow: inset -5px -5px 10px 0px rgba(250, 5, 5, 0.5),
-    5px 5px 10px 0px var(--accent-color),
-    inset 5px 5px 10px 2px rgba(250, 5, 5, 0.5),
-    -5px -5px 10px 2px var(--accent-color);
-  box-sizing: border-box;
+  box-shadow: var(--primary-box-shadow);
 }
 
 main {
@@ -66,7 +69,7 @@ header {
   top: 0;
   width: 94%;
   z-index: 1000;
-  font-size: 0.4em;
+  font-size: 0.35em;
   border-radius: 5px;
 }
 header::after {
@@ -85,10 +88,7 @@ header::after {
   opacity: 0.8;
   z-index: 1;
   border-radius: 5px;
-  box-shadow: inset -5px -5px 10px 0px rgba(250, 5, 5, 0.5),
-    5px 5px 10px 0px var(--accent-color),
-    inset 5px 5px 10px 2px rgba(250, 5, 5, 0.5),
-    -5px -5px 10px 2px var(--accent-color);
+  box-shadow: var(--primary-box-shadow);
 }
 
 header > * {
@@ -96,9 +96,9 @@ header > * {
   z-index: 2;
 }
 #header-image {
-  display: block;
-  margin: 0 auto;
   padding: 20px;
+  margin: 0 auto;
+  display: block;
 }
 .header-img {
   transition: opacity 2s ease;
@@ -106,7 +106,7 @@ header > * {
 
 nav ul {
   list-style-type: none;
-  padding: 0px;
+  padding: 20px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -118,7 +118,7 @@ nav a {
   text-decoration: none;
   background-color: transparent;
   text-align: center;
-  padding: 0px 5px;
+  padding: 0px 10px;
   text-shadow: 4px 8px 15px var(--light-color);
   color: var(--secondary-color);
   font-weight: 700;
@@ -128,7 +128,8 @@ nav a:hover {
   color: var(--accent-color);
   background-color: var(--light-color);
   opacity: 0.7;
-  transform: scale(1.2, 1.5);
+  transform: scale(1.1, 1.35);
+  border-radius: 8px;
 }
 .gallery-menu .submenu {
   display: none;
@@ -140,12 +141,16 @@ nav a:hover {
   transition: transform var(--transition-duration);
 }
 .gallery-menu .submenu li {
-  margin-left: 5px;
+  margin-left: 15px;
   margin-top: 10px;
 }
 .gallery-menu:hover .submenu {
   display: block;
-  background-color: rgba(208, 201, 201, 0.8);
+  background-color: rgba(208, 201, 201, 0.7);
+  border-radius: 10px;
+}
+.gallery-menu:hover {
+  background-color: rgba(36, 70, 223, 0.7);
 }
 
 section {
@@ -155,7 +160,7 @@ section {
 }
 section:first-of-type {
   margin-top: 250px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 h2 {
   margin-top: 0;
@@ -209,11 +214,11 @@ figure img:hover {
   transform: scale(1.1);
 }
 .division {
-  margin-right: 80px;
-  margin-left: 80px;
-  box-shadow: inset -5px -5px 17px 3px rgba(250, 5, 5, 0.3),
-    5px 5px 10px 3px rgba(60, 115, 233, 0.2);
-  padding: 20px 10px;
+  margin-right: 60px;
+  margin-left: 60px;
+  padding: 20px 40px;
+  box-shadow: inset -5px -5px 7px 3px rgba(226, 141, 3, 0.3),
+    5px 5px 10px 3px rgba(221, 175, 9, 0.2);
   border-radius: 10px;
 }
 
@@ -254,30 +259,48 @@ a {
   header {
     font-size: 0.5em;
   }
+  nav ul {
+    flex-flow: column;
+    height: auto;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  nav li {
+    width: 100%;
+  }
   nav a {
-    font-size: 2em;
+    font-size: 3em;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    text-align: justify;
+    padding: 15px 0;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    text-decoration: none;
+  }
+  nav a:hover {
+    background-color: #ddd; /* Hover hatás */
   }
   figure img {
     max-width: 120px;
   }
 }
+#header-image {
+  max-width: 50%;
+}
 
 @media only screen and (max-width: 576px) {
-  .header img {
-    display: none;
-  }
-  img {
-    max-width: 50%;
-  }
   body {
     font-size: 1.2em;
   }
-  nav ul {
-    flex-direction: column;
-    align-items: flex-start;
-  }
   nav a {
     font-size: 1.8em;
+  }
+  #header-image {
+    display: none;
   }
   figure img {
     max-width: 100px;
@@ -766,12 +789,13 @@ audio {
 
 /* ...............................................................................tagok szekció minden beállítása */
 .members {
-  background-image: url(../pictures/stiop3.jpg);
+  background-image: url(../pictures/tagokbgr.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  padding: 250px;
+  padding: 300px;
   filter: sepia(90%);
+  border-radius: 20px;
 }
 
 .members:hover {
@@ -786,14 +810,17 @@ audio {
 }
 
 .circle {
-  width: 28px;
-  height: 300px;
-  color: red;
+  width: 408px;
+  height: 250px;
+  color: var(--light-color);
+  text-shadow: 6px 6px 7px #ff284f;
+  font-weight: 700;
+  font-size: var(--font-size-large);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
+  font-size: 40px;
   position: relative;
 }
 
@@ -804,7 +831,7 @@ h4 {
 .circle::after {
   content: attr(data-name);
   position: absolute;
-  top: 10%;
+  top: 40%;
   left: 40%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.2);
@@ -815,35 +842,40 @@ h4 {
   transition: opacity 0.9s ease;
 }
 
+.members > * {
+  opacity: 1;
+}
+
 .circle:hover::after {
   opacity: 1;
   position: absolute;
-  top: -100px;
+  top: 0px;
+  left: 0;
   transition: all 2s;
 }
 
 .basszus {
   position: absolute;
-  top: 60px;
-  right: 180px;
+  bottom: 60px;
+  right: 110px;
 }
 
 .tenor {
   position: absolute;
-  top: 60px;
-  left: 180px;
+  bottom: 60px;
+  left: 110px;
 }
 
 .szoprán {
   position: absolute;
-  bottom: 60px;
-  left: 40px;
+  top: 50px;
+  left: 110px;
 }
 
 .alt {
   position: absolute;
-  bottom: 50px;
-  right: 30px;
+  top: 50px;
+  right: 110px;
 }
 
 /* Reszponzív tagok szekció */
