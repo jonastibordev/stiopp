@@ -750,7 +750,7 @@ audio {
   margin-bottom: 20px;
   overflow: hidden;
   box-sizing: border-box;
-  filter: sepia(100%);
+  filter: sepia(70%);
   transition: 1s;
 }
 
