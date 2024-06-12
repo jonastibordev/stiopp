@@ -1090,7 +1090,8 @@ textarea {
   margin-bottom: 5px;
 }
 
-.form button {
+.form button,
+input[type='reset'] {
   background-color: var(--accent-color);
   color: white;
   border: none;
@@ -1099,7 +1100,12 @@ textarea {
   cursor: pointer;
 }
 
-.form button:hover {
+.form button {
+  font-size: large;
+}
+
+.form button:hover,
+.form input[type='reset']:hover {
   background-color: var(--secondary-color);
 }
 
