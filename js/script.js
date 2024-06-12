@@ -157,14 +157,39 @@ function closeFullView() {
   document.getElementById('fullImageView').style.display = 'none';
 }
 
-// .......................................................................... Audió galéria
+// ..........................................................................Video,  Audió galéria
 const videos = [
+  {
+    src: 'https://www.youtube.com/embed/u58N8A9Ju2A?list=PLVqnjxCbTHHP3e_5CQD1-gxO5xNOioQXy',
+    title: '.',
+    author: 'Szerző neve',
+    description: 'Laude novella',
+  },
+  {
+    src: 'https://www.youtube.com/embed/6vKM_jU2ucs"',
+    title: '.',
+    author: 'Liszt Ferenc',
+    description: 'O Salutaris Hostia',
+  },
+  {
+    src: 'https://www.youtube.com/embed/QWr5ZEOWxVs',
+    title: '.',
+    author: 'Dobri Hristov',
+    description: 'Rcenica (Legénybúcsú)',
+  },
   {
     src: 'https://www.youtube.com/embed/u58N8A9Ju2A?list=PLVqnjxCbTHHP3e_5CQD1-gxO5xNOioQXy',
     title: 'Laude novella',
     author: 'Szerző neve',
-    description: 'Mű címe',
+    description: 'Negyedik Mű',
   },
+  {
+    src: 'https://www.youtube.com/embed/u58N8A9Ju2A?list=PLVqnjxCbTHHP3e_5CQD1-gxO5xNOioQXy',
+    title: 'Laude novella',
+    author: 'Szerző neve',
+    description: 'Ötödik Mű',
+  },
+
   // További videók...
 ];
 
@@ -194,8 +219,33 @@ const audios = [
     src: './audio/01.mp3',
     image: './pictures/audio_picture.jpg',
     author: 'Szerző neve',
-    title: 'Mű címe',
+    title: 'Első Mű',
   },
+  {
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
+    author: 'Szerző neve',
+    title: 'Második mű',
+  },
+  {
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
+    author: 'Szerző neve',
+    title: 'Harmadik Mű',
+  },
+  {
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
+    author: 'Szerző neve',
+    title: 'Negyedik Mű',
+  },
+  {
+    src: './audio/01.mp3',
+    image: './pictures/audio_picture.jpg',
+    author: 'Szerző neve',
+    title: 'Negyedik Mű',
+  },
+
   // További audio elemek...
 ];
 
@@ -224,3 +274,30 @@ mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
 )}`;
 
 // .......................................................................... Média könyszerű lapozás
+let currentPage = 1;
+const totalPages = 4;
+
+document.getElementById('nextPage').addEventListener('click', () => {
+  if (currentPage < totalPages) {
+    document.getElementById(`page${currentPage}`).classList.add('flipped');
+    currentPage++;
+  }
+});
+
+document.getElementById('prevPage').addEventListener('click', () => {
+  if (currentPage > 1) {
+    currentPage--;
+    document.getElementById(`page${currentPage}`).classList.remove('flipped');
+  }
+});
+
+// .......................................................................... Form, csak az első rádógomb jó küldéshez
+document.getElementById('myForm').addEventListener('submit', function (event) {
+  var isOption1Selected = document.getElementById('option1').checked;
+  if (!isOption1Selected) {
+    alert(
+      'Az üzenetet csak akkor lehet elküldeni, ha az első opció van kiválasztva.'
+    );
+    event.preventDefault();
+  }
+});

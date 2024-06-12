@@ -65,9 +65,9 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 94%;
+  width: 100%;
   z-index: 1000;
   font-size: 0.35em;
   border-radius: 5px;
@@ -154,14 +154,11 @@ nav a:hover {
 }
 
 section {
-  margin-bottom: 20px;
-  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-top: 20px;
   position: relative;
 }
-section:first-of-type {
-  margin-top: 250px;
-  padding-top: 30px;
-}
+
 h2 {
   margin-top: 0;
   text-align: center;
@@ -196,6 +193,7 @@ h3::first-letter {
   text-transform: uppercase;
   color: red;
   background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
 }
 
 figure img {
@@ -216,10 +214,15 @@ figure img:hover {
 .division {
   margin-right: 60px;
   margin-left: 60px;
-  padding: 20px 40px;
-  box-shadow: inset -5px -5px 7px 3px rgba(226, 141, 3, 0.3),
+  padding: 20px 80px;
+  box-shadow: inset -5px -5px 7px 13px rgba(226, 141, 3, 0.3),
     5px 5px 10px 3px rgba(221, 175, 9, 0.2);
   border-radius: 10px;
+  --mask: linear-gradient(-90deg, #0000 32px, #000 0) 16px,
+    radial-gradient(16px, #000 98%, #0000) 50%/32px 29.6px space repeat;
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 20px), 0 100%);
 }
 
 a {
@@ -343,6 +346,15 @@ footer img:hover {
   transition: transform 1.5s ease-in-out; /* 1.5 másodperc az animáció időtartama, ease-in-out timing function */
 }
 
+footer ul {
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: small;
+}
+
 /* ................................................................................arhívum menü (könyvespolc, polc, könyvek...) minden beállítása */
 .bookshelf-container {
   overflow-x: auto;
@@ -417,7 +429,7 @@ footer img:hover {
 }
 /* Vízszintes görgetősáv */
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 15px;
   max-height: 12px;
 }
 /* A görgetősáv kitöltése */
@@ -437,8 +449,8 @@ footer img:hover {
 
 /* ................................................................................vissza a lap tetejére gomb minden beállítása */
 #scrollToTopBtn {
-  display: none; /* Kezdetben ne legyen látható */
-  position: fixed; /* Legyen rögzítve az ablakhoz, hogy mindig látható legyen */
+  display: none;
+  position: fixed;
   bottom: 20px;
   right: 20px;
   padding: 15px 25px 15px 5px;
@@ -450,8 +462,9 @@ footer img:hover {
   border: none;
   border-radius: 9px;
   cursor: pointer;
-  z-index: 1000; /* Biztosítsd, hogy a gomb mindig más elemek fölött legyen */
+  z-index: 1000;
   opacity: 0.7;
+  font-size: large;
 }
 
 #scrollToTopBtn:hover {
@@ -665,11 +678,11 @@ footer img:hover {
 .audio-item {
   position: relative;
   display: inline-block;
-  margin-right: 10px; /* Szükség esetén módosítsd a margin értékét */
+  margin-right: 5px; /* Szükség esetén módosítsd a margin értékét */
 }
 
 .audio-item img {
-  max-width: 225px; /* Beállítom a képek méretét */
+  max-width: 211px; /* Beállítom a képek méretét */
   height: auto;
   display: block;
   border-radius: 18px;
@@ -687,12 +700,13 @@ footer img:hover {
 }
 .audio-description h3,
 .audio-description p {
-  margin: 1px; /* Térköz a szöveg és a kép között */
+  margin: 0px;
+  padding: 0;
 }
 
 .audio-controls {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0;
@@ -704,7 +718,7 @@ footer img:hover {
   transition: 1s;
 }
 audio {
-  width: 250px;
+  width: 220px;
   background-color: transparent;
 }
 
@@ -731,7 +745,7 @@ audio {
 .video {
   position: relative;
   width: calc(20% - 20px);
-  aspect-ratio: 16 / 9;
+
   margin-right: 20px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -901,84 +915,205 @@ h4 {
 }
 
 /* ...............................................................................aktuális szekció minden beállítása */
+/* Container styles */
 .card-container {
   display: flex;
-  justify-content: center; /* A kártyák középre igazítása */
-  flex-wrap: wrap; /* Hogy a kártyák sortörése történhessen, ha kisebb az ablak */
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
 }
 
+/* Card styles */
 .card {
-  flex-basis: calc(
-    33.33% - 20px
-  ); /* Három egyenlő szélességű kártya egymás mellett, 20px margóval */
-  width: calc(33.33% - 20px); /* Hozzáadva a kártya szélességének beállítása */
-  background-color: transparent;
-  padding: 1px 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
+  flex: 1;
   text-align: left;
-}
-.card h3 {
-  text-align: center;
-  margin-bottom: 10px;
+  position: relative;
+  max-width: 50%;
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
-/* Reszponzív kártyák */
+/* Main content and flipbook container styles */
+.aktual-main-container,
+.flipbook-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
+  border-radius: 10px;
+  background: url(../pictures/pergamen2jpg-min.jpg);
+  background-size: cover;
+}
+
+.aktual-main h3 {
+  text-align: center;
+}
+
+.aktual-main img {
+  text-align: center;
+  margin: 20px;
+  max-width: 300px;
+}
+
+/* Flipbook styles */
+.newspaper {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  perspective: 1000px;
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  background: wheat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform 2s;
+  border-radius: 10px;
+  box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
+}
+
+.content {
+  padding: 20px;
+  width: 100%;
+}
+
+#page1 {
+  z-index: 4;
+}
+
+#page2 {
+  z-index: 3;
+}
+
+#page3 {
+  z-index: 2;
+}
+
+#page4 {
+  z-index: 1;
+}
+
+/* Button styles */
+.lapoz {
+  margin: 10px;
+  font-size: 36px;
+  position: absolute;
+  color: var(--accent-color);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  color: red;
+}
+
+#prevPage {
+  bottom: 10px;
+  left: 25px;
+}
+
+#nextPage {
+  bottom: 10px;
+  right: 25px;
+}
+
+.flipped {
+  transform: rotateY(-180deg);
+}
+
+/* Responsive styles */
 @media screen and (max-width: 768px) {
   .card {
-    flex-basis: calc(50% - 20px); /* Két kártya egymás alatt, 20px margóval */
-    width: calc(50% - 20px); /* Két kártya szélessége */
+    flex-basis: calc(50% - 20px); /* Two cards per row */
+    width: calc(50% - 20px);
   }
 }
 
 @media screen and (max-width: 480px) {
   .card {
-    flex-basis: calc(
-      100% - 20px
-    ); /* Egy kártya teljes szélessége, 20px margóval */
-    width: calc(100% - 20px); /* Egy kártya teljes szélessége */
+    flex-basis: calc(100% - 20px); /* One card per row */
+    width: calc(100% - 20px);
   }
 }
 
 /* ...............................................................................kapcsolat szekció minden beállítása */
+form {
+  background-color: transparent;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  width: 90%;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  width: 80px;
+  margin-right: 10px;
+}
+
 input[type='text'],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+input[type='email'],
+textarea {
+  width: calc(100% - 100px);
+  padding: 10px;
+  border: 1px solid #e40f0f;
+  border-radius: 5px;
   box-sizing: border-box;
 }
 
-input[type='submit'] {
-  width: 100%;
-  background-color: #4caf50;
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.radio-group input[type='radio'] {
+  margin-right: 10px;
+}
+
+.radio-group label {
+  margin-right: 20px;
+  margin-bottom: 5px;
+}
+
+.form button {
+  background-color: var(--accent-color);
   color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-input[type='submit']:hover {
-  background-color: #45a049;
+.form button:hover {
+  background-color: var(--secondary-color);
 }
 
-/* Reszponzív kapcsolat szekció */
-@media only screen and (max-width: 768px) {
-  input[type='text'],
-  select {
-    width: 100%;
-    padding: 10px 15px;
-  }
-
-  input[type='submit'] {
-    width: 100%;
-    padding: 12px 15px;
-  }
+input[type='text'],
+input[type='email'],
+textarea {
+  width: calc(100% - 100px);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: wheat;
+}
+label {
+  color: red;
+  font-weight: 700;
 }
