@@ -181,6 +181,11 @@ a {
   text-shadow: 1px -1px 1px rgb(0, 51, 255);
 }
 
+span {
+  font-size: larger;
+  color: var(--light-color);
+}
+
 p::first-letter,
 a::first-letter,
 h2::first-letter,
