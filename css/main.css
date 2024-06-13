@@ -182,8 +182,9 @@ a {
 }
 
 span {
-  font-size: larger;
+  font-size: 28px;
   color: var(--light-color);
+  font-weight: lighter;
 }
 
 p::first-letter,
