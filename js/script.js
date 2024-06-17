@@ -96,66 +96,43 @@ document.getElementById('scrollToTopBtn').addEventListener('click', () => {
 });
 
 // .......................................................................... Képgaléria
-document.addEventListener('DOMContentLoaded', () => {
-  const galleryImages = document.querySelector('.gallery-images');
-  const prevButton = document.getElementById('prevButton');
-  const nextButton = document.getElementById('nextButton');
-  const imageWidth = galleryImages.firstElementChild.clientWidth + 10;
-  let currentPosition = 0;
+let currentImageIndex;
+const images = document.querySelectorAll('.gallery-images img');
 
-  nextButton.addEventListener('click', () => {
-    if (currentPosition > -(galleryImages.childElementCount - 5) * imageWidth) {
-      currentPosition -= imageWidth;
-      galleryImages.style.transform = `translateX(${currentPosition}px)`;
-    }
-  });
-
-  prevButton.addEventListener('click', () => {
-    if (currentPosition < 0) {
-      currentPosition += imageWidth;
-      galleryImages.style.transform = `translateX(${currentPosition}px)`;
-    }
-  });
-});
-
-// .......................................................................... Teljes képernyős nézet
-const images = [
-  './pictures/main_01.jpg',
-  './pictures/main_02.jpg',
-  './pictures/main_03.jpg',
-  './pictures/main_04.jpg',
-  './pictures/main_05.jpg',
-  './pictures/main_06.jpg',
-  './pictures/main_07.jpg',
-  './pictures/main_08.jpg',
-  './pictures/main_09.jpg',
-  './pictures/main_10.jpg',
-];
-let currentIndex = 0;
-
-function updateFullScreenImage(index) {
-  document.getElementById('fullImage').src = images[index];
-}
-
-function nextImageFullScreen() {
-  currentIndex = (currentIndex + 1) % images.length;
-  updateFullScreenImage(currentIndex);
-}
-
-function prevImageFullScreen() {
-  currentIndex = (currentIndex - 1 + images.length) % images.length;
-  updateFullScreenImage(currentIndex);
-}
-
-function fullView(imagesArray, ImgLink) {
-  document.getElementById('fullImage').src = ImgLink;
-  document.getElementById('fullImageView').style.display = 'block';
-  images = [...imagesArray];
+function fullView(img) {
+  const fullImageView = document.getElementById('fullImageView');
+  const fullImage = document.getElementById('fullImage');
+  fullImageView.style.display = 'block';
+  fullImage.src = img.src;
+  currentImageIndex = Array.from(images).indexOf(img);
 }
 
 function closeFullView() {
   document.getElementById('fullImageView').style.display = 'none';
 }
+
+function prevImageFullScreen() {
+  currentImageIndex =
+    currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+  document.getElementById('fullImage').src = images[currentImageIndex].src;
+}
+
+function nextImageFullScreen() {
+  currentImageIndex =
+    currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1;
+  document.getElementById('fullImage').src = images[currentImageIndex].src;
+}
+
+// Carousel functionality
+document.getElementById('prevButton').addEventListener('click', () => {
+  const gallery = document.querySelector('.gallery-images');
+  gallery.insertBefore(gallery.lastElementChild, gallery.firstElementChild);
+});
+
+document.getElementById('nextButton').addEventListener('click', () => {
+  const gallery = document.querySelector('.gallery-images');
+  gallery.appendChild(gallery.firstElementChild);
+});
 
 // ..........................................................................Video,  Audió galéria
 const videos = [

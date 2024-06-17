@@ -217,76 +217,72 @@
       </section>
       <section id="section5">
         <h2>Képek</h2>
-        <div class="division">
-          <div class="gallery">
-            <div class="gallery-images">
-              <img
-                src="./pictures/main_01.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 1"
-              />
-              <img
-                src="./pictures/main_02.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 2"
-              />
-              <img
-                src="./pictures/main_03.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 3"
-              />
-              <img
-                src="./pictures/main_04.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 4"
-              />
-              <img
-                src="./pictures/main_05.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 5"
-              />
-              <img
-                src="./pictures/main_06.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 6"
-              />
-              <img
-                src="./pictures/main_07.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 7"
-              />
-              <img
-                src="./pictures/main_08.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 8"
-              />
-              <img
-                src="./pictures/main_09.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 9"
-              />
-              <img
-                src="./pictures/main_10.jpg"
-                onclick="fullView(images, this.src)"
-                alt="Image 10"
-              />
-            </div>
-            <button id="prevButton">↩</button>
-            <!-- Előző gomb -->
-            <button id="nextButton">↪</button>
-            <!-- Következő gomb -->
+        <div class="gallery">
+          <div class="gallery-images">
+            <img
+              src="./pictures/main_01.jpg"
+              alt="Image 1"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_02.jpg"
+              alt="Image 2"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_03.jpg"
+              alt="Image 3"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_04.jpg"
+              alt="Image 4"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_05.jpg"
+              alt="Image 5"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_06.jpg"
+              alt="Image 6"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_07.jpg"
+              alt="Image 7"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_08.jpg"
+              alt="Image 8"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_09.jpg"
+              alt="Image 9"
+              onclick="fullView(this)"
+            />
+            <img
+              src="./pictures/main_10.jpg"
+              alt="Image 10"
+              onclick="fullView(this)"
+            />
           </div>
-          <div id="fullImageView">
-            <button id="prevButtonFullScreen" onclick="prevImageFullScreen()">
-              ↩
-            </button>
-            <img id="fullImage" src="#" alt="fullImage" />
-            <button id="nextButtonFullScreen" onclick="nextImageFullScreen()">
-              ↪
-            </button>
-            <span id="closeButton" onclick="closeFullView()">x</span>
-          </div>
+          <button id="prevButton">↩</button>
+          <button id="nextButton">↪</button>
           <a href="#"><p>További képek</p></a>
+        </div>
+        <div id="fullImageView">
+          <button id="prevButtonFullScreen" onclick="prevImageFullScreen()">
+            &#8630;
+          </button>
+          <img id="fullImage" src="#" alt="fullImage" />
+          <button id="nextButtonFullScreen" onclick="nextImageFullScreen()">
+            &#8631;
+          </button>
+          <span id="closeButton" onclick="closeFullView()">x</span>
         </div>
       </section>
       <section id="section6">
@@ -404,7 +400,7 @@
         </div>
       </section>
       <div class="upButton">
-        <button id="scrollToTopBtn">Vissza a lap tetejére</button>
+        <button id="scrollToTopBtn">Vissza az elejére</button>
       </div>
     </main>
     <footer>
