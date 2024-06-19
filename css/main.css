@@ -850,8 +850,8 @@ audio {
 }
 
 .circle {
-  width: 208px;
-  height: 150px;
+  width: 280px;
+  height: 230px;
   color: var(--light-color);
   text-shadow: 4px 4px 5px #ff284f;
   font-weight: 700;
@@ -870,16 +870,19 @@ h4 {
 .circle::after {
   content: attr(data-name);
   position: absolute;
-  top: 1;
-  left: 1;
-  transform: translateX(80%);
-  background-color: rgba(89, 0, 255, 0.9);
+  top: 50;
+  left: 30;
+  transform: translateX(65%);
+  background-color: rgba(34, 132, 146, 0.9);
   color: white;
-  padding: 0;
-  margin: 0;
-  border-radius: 5px;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: var(--primary-box-shadow);
   opacity: 0;
   transition: opacity 0.9s ease;
+  text-align: center;
+  text-wrap: pretty;
+  z-index: 1000;
 }
 .basszus::after {
   transform: translateX(-80%);
