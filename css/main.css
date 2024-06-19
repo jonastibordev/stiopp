@@ -832,6 +832,7 @@ audio {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+
   padding: 300px;
   filter: sepia(90%);
   border-radius: 20px;
@@ -849,10 +850,10 @@ audio {
 }
 
 .circle {
-  width: 408px;
-  height: 250px;
+  width: 208px;
+  height: 150px;
   color: var(--light-color);
-  text-shadow: 6px 6px 7px #ff284f;
+  text-shadow: 4px 4px 5px #ff284f;
   font-weight: 700;
   font-size: var(--font-size-large);
   border-radius: 50%;
@@ -864,18 +865,18 @@ audio {
 }
 
 h4 {
-  margin-top: 0;
-  margin-right: 10px;
+  text-wrap: nowrap;
 }
 .circle::after {
   content: attr(data-name);
   position: absolute;
-  top: 40%;
-  left: 40%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.2);
+  top: 1;
+  left: 1;
+  transform: translateX(-2%);
+  background-color: rgba(89, 0, 255, 0.9);
   color: white;
-  padding: 5px;
+  padding: 0;
+  margin: 0;
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.9s ease;
@@ -888,40 +889,41 @@ h4 {
 .circle:hover::after {
   opacity: 1;
   position: absolute;
-  top: 0px;
+  top: 0;
   left: 0;
+  font-weight: 500;
+  text-shadow: none;
   transition: all 2s;
 }
 
 .basszus {
   position: absolute;
-  bottom: 60px;
-  right: 110px;
+  bottom: 120px;
+  right: 50px;
 }
 
 .tenor {
   position: absolute;
-  bottom: 60px;
-  left: 110px;
+  bottom: 120px;
+  left: 50px;
 }
 
 .szoprán {
   position: absolute;
   top: 50px;
-  left: 110px;
+  left: 50px;
 }
 
 .alt {
   position: absolute;
   top: 50px;
-  right: 110px;
+  right: 50px;
 }
 
 .latin {
   position: absolute;
   bottom: 10px;
-  font-stretch: extra-expanded;
-  font-size: 80px;
+  font-size: 60px;
 }
 
 /* Reszponzív tagok szekció */
