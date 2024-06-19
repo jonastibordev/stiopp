@@ -872,7 +872,7 @@ h4 {
   position: absolute;
   top: 1;
   left: 1;
-  transform: translateX(-2%);
+  transform: translateX(80%);
   background-color: rgba(89, 0, 255, 0.9);
   color: white;
   padding: 0;
@@ -880,6 +880,13 @@ h4 {
   border-radius: 5px;
   opacity: 0;
   transition: opacity 0.9s ease;
+}
+.basszus::after {
+  transform: translateX(-80%);
+}
+
+.alt::after {
+  transform: translateX(-80%);
 }
 
 .members > * {
