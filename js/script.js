@@ -252,7 +252,7 @@ mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
 
 // .......................................................................... Média könyszerű lapozás
 let currentPage = 1;
-const totalPages = 4;
+const totalPages = 8;
 
 document.getElementById('nextPage').addEventListener('click', () => {
   if (currentPage < totalPages) {

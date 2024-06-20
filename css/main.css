@@ -998,10 +998,16 @@ h4 {
 
 /* Flipbook styles */
 .newspaper {
-  width: 100%;
+  width: 95%;
   height: 450px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   position: relative;
   perspective: 1000px;
+  background-image: url('/pictures/main_003.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page {
@@ -1010,7 +1016,7 @@ h4 {
   background: wheat;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -5px;
   padding: 10px 20px;
   transform-style: preserve-3d;
   transform-origin: left;
@@ -1022,6 +1028,31 @@ h4 {
 .content {
   padding: 20px;
   width: 100%;
+}
+
+.wavy {
+  position: relative;
+}
+
+.wavy span {
+  position: relative;
+  display: inline-block;
+  color: var(--primary-color);
+  animation: animate 1s ease-in-out infinite;
+  animation-delay: calc(0.9s * var(--i));
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(-3px);
+  }
+  40%,
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 #page1 {
@@ -1042,27 +1073,30 @@ h4 {
 
 /* Button styles */
 .lapoz {
-  margin: 10px;
-  font-size: 36px;
+  margin: 1px;
+  padding: 20px;
+  font-size: 40px;
   position: absolute;
-  color: var(--accent-color);
+  color: red;
   background: transparent;
   border: none;
   cursor: pointer;
+  font-weight: 700;
+  text-shadow: whitesmoke 1px 0 10px;
 }
 
 button:hover {
-  color: red;
+  color: var(--accent-color);
 }
 
 #prevPage {
-  bottom: 10px;
-  left: 25px;
+  bottom: 5px;
+  left: 5px;
 }
 
 #nextPage {
-  bottom: 10px;
-  right: 25px;
+  bottom: 5px;
+  right: 15px;
 }
 
 .flipped {
