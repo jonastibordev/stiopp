@@ -855,7 +855,6 @@ audio {
   color: var(--light-color);
   text-shadow: 4px 4px 5px #ff284f;
   font-weight: 700;
-  font-size: var(--font-size-large);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -875,12 +874,12 @@ h4 {
   transform: translateX(65%);
   background-color: rgba(34, 132, 146, 0.9);
   color: white;
-  padding: 25px;
+  padding: 20px;
   border-radius: 25px;
   box-shadow: var(--primary-box-shadow);
   opacity: 0;
   transition: opacity 0.9s ease;
-  text-align: center;
+  text-align: left;
   text-wrap: pretty;
   z-index: 1000;
 }
@@ -934,6 +933,11 @@ h4 {
   position: absolute;
   bottom: 10px;
   font-size: 60px;
+}
+
+.latin:hover {
+  opacity: 0;
+  background-color: #fff;
 }
 
 /* Reszponzív tagok szekció */
