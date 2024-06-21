@@ -1020,7 +1020,7 @@ h4 {
   padding: 10px 20px;
   transform-style: preserve-3d;
   transform-origin: left;
-  transition: transform 3s ease-in-out, font-size 4s ease-out;
+  transition: transform 3s ease-in-out, font-size 3s ease-in;
   border-radius: 10px;
   box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
 }
@@ -1036,25 +1036,30 @@ h4 {
 }
 
 .wavy {
-  position: relative;
+  position: absolute;
+  bottom: 50px;
+  right: 40px;
 }
 
 .wavy span {
   position: relative;
   display: inline-block;
-  color: var(--primary-color);
+  color: red;
   animation: animate 1s ease-in-out infinite;
   animation-delay: calc(0.9s * var(--i));
+  z-index: 1000;
 }
 
 @keyframes animate {
   0% {
     transform: translateY(0px);
   }
-  20% {
-    transform: translateY(-3px);
+  40% {
+    transform: translateY(-2px);
   }
-  40%,
+  80% {
+    transform: translateY(8px);
+  }
   100% {
     transform: translateY(0px);
   }
@@ -1095,13 +1100,15 @@ button:hover {
 }
 
 #prevPage {
-  bottom: 2px;
-  left: 5px;
+  bottom: 3px;
+  left: 2px;
+  margin: 0;
+  padding: 0;
 }
 
 #nextPage {
-  bottom: 2px;
-  right: 5px;
+  bottom: 0px;
+  right: 0px;
 }
 
 /* Responsive styles */
