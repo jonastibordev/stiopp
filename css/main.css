@@ -998,12 +998,12 @@ h4 {
 
 /* Flipbook styles */
 .newspaper {
-  width: 95%;
+  width: 96%;
   height: 450px;
   margin-bottom: 15px;
   margin-top: 15px;
   position: relative;
-  perspective: 1000px;
+  perspective: 2000px;
   background-image: url('/pictures/main_003.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -1016,13 +1016,18 @@ h4 {
   background: wheat;
   position: absolute;
   top: 0;
-  left: -5px;
+  left: 0px;
   padding: 10px 20px;
   transform-style: preserve-3d;
   transform-origin: left;
-  transition: transform 2s;
+  transition: transform 3s ease-in-out, font-size 4s ease-out;
   border-radius: 10px;
   box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
+}
+
+.flipped {
+  transform: rotateY(-180deg);
+  font-size: 0px;
 }
 
 .content {
@@ -1090,17 +1095,13 @@ button:hover {
 }
 
 #prevPage {
-  bottom: 5px;
+  bottom: 2px;
   left: 5px;
 }
 
 #nextPage {
-  bottom: 5px;
-  right: 15px;
-}
-
-.flipped {
-  transform: rotateY(-180deg);
+  bottom: 2px;
+  right: 5px;
 }
 
 /* Responsive styles */
