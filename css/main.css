@@ -703,7 +703,10 @@ footer ul {
 .audio-item {
   position: relative;
   display: inline-block;
-  margin-right: 5px; /* Szükség esetén módosítsd a margin értékét */
+  margin: 5px;
+  padding: 0;
+  max-width: 211px;
+  vertical-align: top;
 }
 
 .audio-item img {
@@ -720,7 +723,7 @@ footer ul {
 }
 
 .audio-description {
-  text-align: center; /* Szövegközépre igazítás */
+  text-align: left; /* Szövegközépre igazítás */
   margin-bottom: 0px;
 }
 .audio-description h3,
@@ -828,7 +831,7 @@ audio {
 
 /* ...............................................................................tagok szekció minden beállítása */
 .members {
-  background-image: url(../pictures/tagokbgr.png);
+  background-image: url(../pictures/tag.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -850,8 +853,8 @@ audio {
 }
 
 .circle {
-  width: 280px;
-  height: 230px;
+  width: 400px;
+  height: 150px;
   color: var(--light-color);
   text-shadow: 4px 4px 5px #ff284f;
   font-weight: 700;
@@ -887,7 +890,7 @@ h4 {
   transform: translateX(-80%);
 }
 
-.alt::after {
+.szoprán::after {
   transform: translateX(-80%);
 }
 
@@ -902,7 +905,7 @@ h4 {
   left: 0;
   font-weight: 500;
   text-shadow: none;
-  transition: all 2s;
+  transition: all 2s ease-in-out;
 }
 
 .basszus {
@@ -911,19 +914,19 @@ h4 {
   right: 50px;
 }
 
-.tenor {
+.alt {
   position: absolute;
   bottom: 120px;
   left: 50px;
 }
 
-.szoprán {
+.tenor {
   position: absolute;
   top: 50px;
   left: 50px;
 }
 
-.alt {
+.szoprán {
   position: absolute;
   top: 50px;
   right: 50px;
@@ -932,12 +935,13 @@ h4 {
 .latin {
   position: absolute;
   bottom: 10px;
-  font-size: 60px;
+  font-size: 80px;
+  background: rgba(208, 201, 201, 0.7);
+  transition: opacity 2s;
 }
 
 .latin:hover {
-  opacity: 0;
-  background-color: #fff;
+  opacity: 0.5;
 }
 
 /* Reszponzív tagok szekció */
@@ -1019,8 +1023,8 @@ h4 {
   left: 0px;
   padding: 10px 20px;
   transform-style: preserve-3d;
-  transform-origin: left;
-  transition: transform 3s ease-in-out, font-size 3s ease-in;
+  transform-origin: top left;
+  transition: transform 3s ease-in-out, font-size 3s ease-in, opacity 3s;
   border-radius: 10px;
   box-shadow: -1px -3px 17px 4px var(--primary-color) inset;
 }
@@ -1028,6 +1032,7 @@ h4 {
 .flipped {
   transform: rotateY(-180deg);
   font-size: 0px;
+  opacity: 0.7;
 }
 
 .content {
@@ -1038,7 +1043,7 @@ h4 {
 .wavy {
   position: absolute;
   bottom: 50px;
-  right: 40px;
+  right: 46px;
 }
 
 .wavy span {
@@ -1055,10 +1060,13 @@ h4 {
     transform: translateY(0px);
   }
   40% {
-    transform: translateY(-2px);
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(8px);
   }
   80% {
-    transform: translateY(8px);
+    transform: translateY(18px);
   }
   100% {
     transform: translateY(0px);

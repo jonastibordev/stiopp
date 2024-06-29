@@ -195,32 +195,38 @@ const audios = [
   {
     src: './audio/01.mp3',
     image: './pictures/audio_picture.jpg',
-    author: 'Szerző neve',
-    title: 'Első Mű',
+    author: 'Orlando di Lasso',
+    title: 'Tutto lo di mi dici canta!',
   },
   {
-    src: './audio/01.mp3',
+    src: './audio/02.mp3',
     image: './pictures/audio_picture.jpg',
-    author: 'Szerző neve',
-    title: 'Második mű',
+    author: 'Magyarországi gregorián',
+    title: 'Procedentem sponsum',
   },
   {
-    src: './audio/01.mp3',
+    src: './audio/03.mp3',
     image: './pictures/audio_picture.jpg',
-    author: 'Szerző neve',
-    title: 'Harmadik Mű',
+    author: 'Umbriai középkori dallam',
+    title: 'Alle – psalite cum – luia',
   },
   {
-    src: './audio/01.mp3',
+    src: './audio/04.mp3',
     image: './pictures/audio_picture.jpg',
-    author: 'Szerző neve',
-    title: 'Negyedik Mű',
+    author: 'Jacopus Arcadelt',
+    title: 'Il bianco e dolce cigno',
   },
   {
-    src: './audio/01.mp3',
+    src: './audio/05.mp3',
     image: './pictures/audio_picture.jpg',
-    author: 'Szerző neve',
-    title: 'Negyedik Mű',
+    author: 'Óangol burden            ',
+    title: 'Nowell Sing We ',
+  },
+  {
+    src: './audio/06.mp3',
+    image: './pictures/audio_picture.jpg',
+    author: 'Aretino Bivi             ',
+    title: ' Animam meam dillectam',
   },
 
   // További audio elemek...
@@ -252,7 +258,7 @@ mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
 
 // .......................................................................... Média könyszerű lapozás
 let currentPage = 1;
-const totalPages = 8;
+const totalPages = 5;
 
 document.getElementById('nextPage').addEventListener('click', () => {
   if (currentPage < totalPages) {
