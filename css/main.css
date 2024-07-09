@@ -831,7 +831,7 @@ audio {
 
 /* ...............................................................................tagok szekció minden beállítása */
 .members {
-  background-image: url(../pictures/tag.png);
+  background-image: url(../pictures/tagokbgr.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
