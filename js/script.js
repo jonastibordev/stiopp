@@ -1,14 +1,12 @@
 'use strict';
 
-// .......................................................................... Header menürendszer, lenyíló menük
+// Header menu with smooth scrolling
 document.querySelectorAll('nav a').forEach((link) => {
   link.addEventListener('click', function (event) {
     event.preventDefault();
-
-    document.querySelectorAll('nav a').forEach((item) => {
-      item.classList.remove('selected');
-    });
-
+    document
+      .querySelectorAll('nav a')
+      .forEach((item) => item.classList.remove('selected'));
     this.classList.add('selected');
 
     const targetElement = document.querySelector(this.getAttribute('href'));
@@ -21,7 +19,7 @@ document.querySelectorAll('nav a').forEach((link) => {
   });
 });
 
-// .......................................................................... Header kép (Stioppi felirat) animálása
+// Header image animation
 document.addEventListener('DOMContentLoaded', () => {
   const interval = 10000;
   const imageSources = [
@@ -44,6 +42,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   changeImage();
   setInterval(changeImage, interval);
+});
+
+// Hamburger menu functionality
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('nav ul');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('show');
+});
+
+// Hide menu when a link is clicked
+navMenu.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('show');
+  });
 });
 
 // .......................................................................... Archívum menü könyvespolc, könyvek
