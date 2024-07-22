@@ -81,6 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
     book.style.backgroundImage = `url('${
       backgrounds[Math.floor(Math.random() * backgrounds.length)]
     }')`;
+
+    // Véletlenszerű magasság és szélesség generálása
+    const minHeight = 190; // Minimális magasság
+    const maxHeight = 205; // Maximális magasság
+    const minWidth = 90; // Minimális szélesség
+    const maxWidth = 120; // Maximális szélesség
+
+    const randomHeight =
+      Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
+    const randomWidth =
+      Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+
+    book.style.height = `${randomHeight}px`;
+    book.style.width = `${randomWidth}px`;
+
     book.innerHTML = `<a href="#" class="book-link">${year}</a>`;
     bookshelf.appendChild(book);
 

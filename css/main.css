@@ -6,9 +6,9 @@
   --accent-color: #258ea6ff;
   --light-color: #f0eff4ff;
   --dark-color: rgb(0, 0, 0);
-  --font-size-default: 2.3em;
-  --font-size-large: 1.7em;
-  --font-size-small: 1.3em;
+  --font-size-default: 1.8em;
+  --font-size-large: 2.2em;
+  --font-size-small: 1em;
   --transition-duration: 1.2s;
   --background-opacity: 0.9;
   --primary-box-shadow: inset -5px -5px 10px 0px rgba(226, 141, 3, 0.3),
@@ -70,7 +70,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  font-size: 0.35em;
+  font-size: 0.4em;
   border-radius: 5px;
 }
 
@@ -99,7 +99,7 @@ header > * {
 }
 
 #header-image {
-  padding: 20px;
+  padding: 10px;
   margin: 0 auto;
   display: block;
   max-width: 100%;
@@ -108,11 +108,16 @@ header > * {
 
 nav ul {
   list-style-type: none;
-  padding: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+ul.menu {
+  padding-bottom: 2px;
+  background-color: rgba(240, 248, 255, 0.2);
+  border-radius: 3px;
 }
 
 nav a {
@@ -141,7 +146,7 @@ nav a:hover {
   display: none;
   position: absolute;
   background: transparent;
-  padding-bottom: 10px;
+  padding-bottom: 3px;
   border-radius: 5px;
   transform: scale(0.9);
   transition: transform var(--transition-duration);
@@ -224,6 +229,11 @@ nav ul {
   }
 }
 
+h4 {
+  color: var(--primary-color);
+  font-size: var(--font-size-default);
+}
+
 @media only screen and (max-width: 576px) {
   nav ul a {
     font-size: 2.9em;
@@ -238,7 +248,8 @@ section {
 h2,
 h3,
 p,
-a {
+a,
+h4 {
   text-shadow: 1px -1px 1px rgb(0, 51, 255);
 }
 
@@ -249,8 +260,8 @@ h3 {
 }
 
 p {
-  font-size: 1.4em;
-  margin-top: 10px;
+  font-size: 1.3em;
+  margin-top: 5px;
 }
 
 a {
@@ -267,7 +278,8 @@ span {
 p::first-letter,
 a::first-letter,
 h2::first-letter,
-h3::first-letter {
+h3::first-letter,
+h4::first-letter {
   font-size: 115%;
   font-weight: bold;
   letter-spacing: 0.1em;
@@ -296,7 +308,7 @@ figure img:hover {
 
 .division {
   margin: 0 60px;
-  padding: 20px 80px;
+  padding: 10px 60px;
   box-shadow: inset -5px -5px 7px 13px rgba(226, 141, 3, 0.3),
     5px 5px 10px 3px rgba(221, 175, 9, 0.2);
   border-radius: 10px;
@@ -474,43 +486,41 @@ footer ul {
   }
 }
 /* ................................................................................arhívum menü (könyvespolc, polc, könyvek...) minden beállítása */
+/* Általános stílusok */
 .bookshelf-container {
   overflow-x: auto;
-  overflow-y: hidden;
   white-space: nowrap;
   position: relative;
-  background-image: url(../pictures/pergamen2jpg.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
+  background: url(../pictures/pergamen2jpg.jpg) center no-repeat;
   background-size: cover;
-  padding-left: 1px;
-  padding-right: 1px;
+  padding: 1px;
   border-radius: 10px;
 }
+
 .bookshelf {
   display: flex;
   flex-wrap: nowrap;
   padding-bottom: 2px;
   margin-left: 5px;
 }
+
 .book {
   border-radius: 10px;
-  margin: 10px 5px 0px 0px;
+  margin: 10px 5px 0 0;
   font-family: 'Italianno', cursive;
   font-weight: 400;
   font-size: 0.7em;
   background-color: var(--primary-color);
-  border-top: 3px ridge var(--secondary-color);
-  border-right: 8px ridge var(--secondary-color);
-  border-bottom: 3px ridge var(--secondary-color);
-  border-left: 10px ridge var(--secondary-color);
-  box-shadow: -5px 4px 11px 3px var(--dark-color);
+  border: 3px ridge var(--secondary-color);
+  border-right-width: 8px;
+  border-left-width: 10px;
   box-shadow: -5px 4px 11px 3px rgba(0, 0, 0, 0.75);
   transition: transform 1.2s;
   opacity: 0.7;
-  align-self: flex-end; /* Könyvek alulra igazítása */
+  align-self: flex-end;
   height: 190px;
 }
+
 .book-link {
   text-decoration: none;
   color: var(--secondary-color);
@@ -522,45 +532,42 @@ footer ul {
   transform: translate(-50%, -50%);
   border-radius: 50%;
 }
+
 .book:hover {
   transform: translate(8px, 10%);
-  transition: transform 1.2s;
 }
+
 .book-link:hover {
-  color: var(--light-color);
   background: var(--dark-color);
   color: var(--accent-color);
-  transition: transform 1.2s;
 }
+
 .shelf {
   width: calc(100% + 300px);
   height: 20px;
-  background-color: transparent;
-  background-image: url('../pictures/polc.jpg');
-  background-repeat: repeat-x;
-  background-position: center;
+  background: url('../pictures/polc.jpg') repeat-x center;
   margin: 0 -10px;
 }
-/* Az első gyerek elem formázása */
+
 .bookshelf > .book:first-child {
   opacity: 0;
 }
-/* Vízszintes görgetősáv */
+
+/* Görgetősáv stílusok */
 ::-webkit-scrollbar {
   width: 15px;
-  max-height: 12px;
 }
-/* A görgetősáv kitöltése */
+
 ::-webkit-scrollbar-track {
   background-color: var(--primary-color);
   border-radius: 12px;
 }
-/* A görgetősáv kurzorának területe */
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--accent-color);
   border-radius: 50%;
 }
-/* Aktív állapot */
+
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--light-color);
 }
@@ -607,7 +614,7 @@ footer ul {
   -webkit-mask: var(--mask);
   mask: var(--mask);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 20px), 0 100%);
-  padding: 20px;
+  padding: 30px;
 }
 
 .gallery-images {
@@ -842,6 +849,8 @@ footer ul {
 .audio-description p {
   margin: 0px;
   padding: 0;
+  font-size: 1.3em;
+  text-align: left;
 }
 
 .audio-controls {
@@ -913,6 +922,8 @@ audio {
 .video-description h3,
 .video-description p {
   margin: 1px; /* Térköz a szöveg és a kép között */
+  font-size: 1.3em;
+  text-align: left;
 }
 
 /* Reszponzív videó galéria */
@@ -1119,7 +1130,7 @@ h4 {
 /* Flipbook styles */
 .newspaper {
   width: 96%;
-  height: 450px;
+  height: 440px;
   margin-bottom: 15px;
   margin-top: 15px;
   position: relative;
