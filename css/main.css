@@ -33,7 +33,7 @@ body {
     var(--light-color),
     var(--primary-color)
   );
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-family: 'Italianno', Verdana, Geneva, Tahoma, sans-serif;
   font-size: var(--font-size-default);
   position: relative;
@@ -46,7 +46,7 @@ body::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../pictures/pergamen2jpg-min.jpg');
+  background-image: url('../pictures/pergamen3.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -191,6 +191,46 @@ nav a:hover {
   transform: translateY(-12px) rotate(-45deg);
 }
 
+/* Felrobbant kávéfőző animációhoz*/
+.stiopp {
+  display: inline-block;
+  font-size: 1.5em;
+}
+
+.stiopp span {
+  position: relative;
+  display: inline-block;
+  opacity: 0.8;
+  animation: flyIn 3s ease-in-out;
+  text-align: center;
+  color: rgb(41, 39, 28);
+  font-weight: bolder;
+  letter-spacing: 9px;
+  margin: 0;
+  padding: 0;
+  text-wrap: wrap;
+}
+
+@keyframes flyIn {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--x), var(--y), 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    color: rgb(219, 219, 205);
+    text-shadow: 6px 13px 5px rgba(80, 18, 18, 1);
+    background-color: rgb(49, 0, 0);
+    border-radius: 50%;
+    box-shadow: 11px 11px 69px 6px rgb(255, 136, 0);
+  }
+}
+
+.hidden-dot {
+  opacity: 0;
+}
+
 /* Hide navigation menu for smaller screens */
 nav ul {
   display: flex;
@@ -211,7 +251,6 @@ nav ul {
     left: 0;
     background: var(--light-color);
     border-radius: 0 0 10px 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
 
   nav ul.show {
@@ -219,9 +258,15 @@ nav ul {
   }
 
   nav ul a {
-    padding: 10px 0;
+    padding: 10px 200px;
     font-size: 1.5em;
     width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: aliceblue;
+    font-size: larger;
+  }
+  nav ul a span {
+    display: none;
   }
 
   .hamburger {
@@ -232,6 +277,7 @@ nav ul {
 h4 {
   color: var(--primary-color);
   font-size: var(--font-size-default);
+  text-wrap: wrap;
 }
 
 @media only screen and (max-width: 576px) {
@@ -275,6 +321,12 @@ span {
   font-weight: lighter;
 }
 
+.stiopp span {
+  letter-spacing: 1px;
+  padding-left: 1.4px;
+  text-align: center;
+}
+
 p::first-letter,
 a::first-letter,
 h2::first-letter,
@@ -316,7 +368,7 @@ figure img:hover {
     radial-gradient(16px, #000 98%, #0000) 50%/32px 29.6px space repeat;
   -webkit-mask: var(--mask);
   mask: var(--mask);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 20px), 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% calc(100% - 20px), 0 100%);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -359,13 +411,13 @@ figure img:hover {
   nav ul {
     flex-direction: column;
     text-align: center;
-    padding: 0;
+    padding: 0px;
   }
 
   nav a {
     font-size: 3em;
     width: 100%;
-    padding: 15px 0;
+    padding: 1px 0;
     background-color: var(--accent-color);
     color: var(--secondary-color);
   }
@@ -376,6 +428,15 @@ figure img:hover {
 
   figure img {
     max-width: 120px;
+  }
+  .gallery-menu .submenu {
+    position: static;
+    display: block;
+    transform: none;
+    padding: 0;
+  }
+  nav a[href='#'] {
+    display: none; /* Elrejtés */
   }
 }
 
@@ -606,15 +667,6 @@ footer ul {
   position: relative;
   margin-right: 60px;
   margin-left: 60px;
-  box-shadow: inset -5px -5px 7px 13px rgba(226, 141, 3, 0.3),
-    5px 5px 10px 3px rgba(221, 175, 9, 0.2);
-  border-radius: 10px;
-  --mask: linear-gradient(-90deg, #0000 32px, #000 0) 16px,
-    radial-gradient(16px, #000 98%, #0000) 50%/32px 29.6px space repeat;
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% calc(100% - 20px), 0 100%);
-  padding: 30px;
 }
 
 .gallery-images {
@@ -833,6 +885,7 @@ footer ul {
   height: auto;
   display: block;
   border-radius: 18px;
+  border: 2px groove brown;
 }
 
 .audio-item:hover {
@@ -849,7 +902,7 @@ footer ul {
 .audio-description p {
   margin: 0px;
   padding: 0;
-  font-size: 1.3em;
+  font-size: 1.22em;
   text-align: left;
 }
 
@@ -1182,6 +1235,12 @@ h4 {
   z-index: 1000;
 }
 
+#section1 h4 {
+  color: var(--secondary-color);
+  text-align: center;
+  text-wrap: wrap;
+}
+
 @keyframes animate {
   0% {
     transform: translateY(0px);
@@ -1235,10 +1294,8 @@ button:hover {
 }
 
 #prevPage {
-  bottom: 3px;
-  left: 2px;
-  margin: 0;
-  padding: 0;
+  bottom: 0;
+  right: 40px;
 }
 
 #nextPage {
@@ -1268,7 +1325,7 @@ button:hover {
   background-color: transparent;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {

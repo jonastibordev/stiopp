@@ -167,61 +167,61 @@ document.getElementById('nextButton').addEventListener('click', () => {
 // ..........................................................................Video,  Audió galéria
 const videos = [
   {
-    src: 'https://www.youtube.com/embed/cPaSjIPlpiY',
+    src: 'https://www.youtube-nocookie.com/embed/cPaSjIPlpiY',
     title: '.',
     author: 'Bepi De Marzi',
     description: 'Signore delle cime',
   },
   {
-    src: 'https://www.youtube.com/embed/2W9UzRmbV_s',
+    src: 'https://www.youtube-nocookie.com/embed/2W9UzRmbV_s',
     title: '.',
     author: 'Aretino Bivi',
     description: 'Animam meam dilectam tradidit',
   },
   {
-    src: 'https://www.youtube.com/embed/gmRHNCXl8Kw',
+    src: 'https://www.youtube-nocookie.com/embed/gmRHNCXl8Kw',
     title: '.',
     author: 'Orazio Vecchi',
     description: 'Gioite tutti',
   },
   {
-    src: 'https://www.youtube.com/embed/CEo7S1_CAWY',
+    src: 'https://www.youtube-nocookie.com/embed/CEo7S1_CAWY',
     title: '.',
     author: 'Thomas Tallis',
     description: 'If ye love me',
   },
   {
-    src: 'https://www.youtube.com/embed/lCYTQgR_Ghk',
+    src: 'https://www.youtube-nocookie.com/embed/lCYTQgR_Ghk',
     title: '.',
     author: 'Claude Goudimel',
     description: 'zsoltár',
   },
   {
-    src: 'https://www.youtube.com/embed/6vKM_jU2ucs',
+    src: 'https://www.youtube-nocookie.com/embed/6vKM_jU2ucs',
     title: '.',
     author: 'Liszt Ferenc',
     description: 'Salutaris hostia',
   },
   {
-    src: 'https://www.youtube.com/embed/EkdBnsTrNHA',
+    src: 'https://www.youtube-nocookie.com/embed/EkdBnsTrNHA',
     title: '.',
     author: 'Kodály Zoltán',
     description: 'Adventi ének',
   },
   {
-    src: 'https://www.youtube.com/embed/0PiXvcMcEw8',
+    src: 'https://www.youtube-nocookie.com/embed/0PiXvcMcEw8',
     title: '.',
     author: 'Huzella Elek',
     description: 'Virgo prudentissima',
   },
   {
-    src: 'https://www.youtube.com/embed/Tc_TW64qVCo',
+    src: 'https://www.youtube-nocookie.com/embed/Tc_TW64qVCo',
     title: '.',
     author: 'Bárdos Lajos',
     description: 'A pusztában kiáltó szava',
   },
   {
-    src: 'https://www.youtube.com/embed/OZWBy-RPdII',
+    src: 'https://www.youtube-nocookie.com/embed/OZWBy-RPdII',
     title: '.',
     author: 'Orbán György',
     description: 'Ave Maria',
@@ -234,21 +234,21 @@ const videoContainer = document.getElementById('videoContainer');
 videos.forEach((video) => {
   videoContainer.innerHTML += `
     <div class="video">
-      <iframe
-        width="1280"
-        height="720"
-        src="${video.src}"
-        title="${video.title}"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe>
-      <div class="video-description">
-        <h3>${video.author}</h3>
-        <p>${video.description}</p>
-      </div>
-    </div>`;
+  <iframe
+    width="1280"
+    height="720"
+    src="${video.src}"
+    title="${video.title}"
+    frameborder="0"
+    allow="encrypted-media; picture-in-picture"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
+  <div class="video-description">
+    <h3>${video.author}</h3>
+    <p>${video.description}</p>
+  </div>
+</div>`;
 });
 
 const audios = [
@@ -284,13 +284,13 @@ const audios = [
   },
   {
     src: './audio/Bartók Béla - Kórusdal Murányi E átirat.mp3',
-    image: './pictures/audio_picture.jpg',
+    image: './pictures/bartók_kórusdal.jpg',
     author: 'Bartók Béla',
     title: 'Kórusdal Murányi Eszter kórus feldolgozása',
   },
   {
     src: './audio/Bartók Béla - Tót legények tánca Murányi E Faragó D átirat.mp3',
-    image: './pictures/audio_picture.jpg',
+    image: './pictures/bartók_tóth_legények.jpg',
     author: 'Bartók Béla',
     title:
       'Tót legények tánca Murányi Eszter kórus feldolgozása, szöveg: Faragó Dániel',
@@ -303,7 +303,7 @@ const audios = [
   },
   {
     src: './audio/Karai József - Ugrótánc.mp3',
-    image: './pictures/audio_picture.jpg',
+    image: './pictures/karai_ugrótánc.jpg',
     author: 'Karai József',
     title: 'Ugrótánc',
   },
@@ -361,11 +361,27 @@ document.getElementById('prevPage').addEventListener('click', () => {
 
 // .......................................................................... Form, csak az első rádógomb jó küldéshez
 document.getElementById('myForm').addEventListener('submit', function (event) {
-  var isOption1Selected = document.getElementById('option1').checked;
+  let isOption1Selected = document.getElementById('option1').checked;
   if (!isOption1Selected) {
     alert(
       'Az üzenetet csak akkor lehet elküldeni, ha az első opció van kiválasztva.'
     );
     event.preventDefault();
+  }
+});
+
+//Felrobbant hatás
+document.addEventListener('DOMContentLoaded', function () {
+  const title = document.getElementById('stiopp');
+  const text = title.textContent.replace(/\./g, ' .'); // Remove dots from the text content
+  title.textContent = ' ';
+
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.textContent = text[i];
+    span.style.setProperty('--x', `${Math.random() * 900 - 100}px`);
+    span.style.setProperty('--y', `${Math.random() * 300 - 100}px`);
+    span.style.animationDelay = `${i * 0.2}s`;
+    title.appendChild(span);
   }
 });
