@@ -201,7 +201,7 @@ nav a:hover {
   position: relative;
   display: inline-block;
   opacity: 0.8;
-  animation: flyIn 3s ease-in-out;
+  animation: flyIn 4.5s ease-in-out;
   text-align: center;
   color: rgb(41, 39, 28);
   font-weight: bolder;
@@ -212,23 +212,24 @@ nav a:hover {
 }
 
 @keyframes flyIn {
-  from {
+  0% {
     opacity: 0;
     transform: translate3d(var(--x), var(--y), 0);
   }
-  to {
+
+  50% {
+    transform: rotate3d(1, 1, 1, 90deg);
+    transform: scale(-0.5, 1);
+  }
+
+  100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     color: rgb(219, 219, 205);
     text-shadow: 6px 13px 5px rgba(80, 18, 18, 1);
     background-color: rgb(49, 0, 0);
     border-radius: 50%;
-    box-shadow: 11px 11px 69px 6px rgb(255, 136, 0);
   }
-}
-
-.hidden-dot {
-  opacity: 0;
 }
 
 /* Hide navigation menu for smaller screens */
@@ -662,11 +663,9 @@ footer ul {
 
 /* ................................................................................képek galéria minden beállítása */
 .gallery {
-  width: 90%;
+  width: 100%;
   overflow: hidden;
   position: relative;
-  margin-right: 60px;
-  margin-left: 60px;
 }
 
 .gallery-images {
@@ -676,14 +675,12 @@ footer ul {
 }
 
 .gallery-images img {
-  max-width: 230px;
-  margin-right: 10px;
+  max-width: 210px;
+  margin-right: 1px;
   height: auto;
   filter: grayscale(60%);
   transition: transform 0.3s ease, filter 1.2s ease;
   box-shadow: 1px 3px 0px 8px rgba(183, 23, 23, 0.75);
-  -webkit-box-shadow: 1px 3px 0px 8px rgba(183, 23, 23, 0.75);
-  -moz-box-shadow: 1px 3px 0px 8px rgba(183, 23, 23, 0.75);
 }
 
 .gallery-images img:hover {

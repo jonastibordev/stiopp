@@ -373,15 +373,16 @@ document.getElementById('myForm').addEventListener('submit', function (event) {
 //Felrobbant hatás
 document.addEventListener('DOMContentLoaded', function () {
   const title = document.getElementById('stiopp');
-  const text = title.textContent.replace(/\./g, ' .'); // Remove dots from the text content
-  title.textContent = ' ';
+  const text = title.textContent;
+  title.textContent = '';
 
   for (let i = 0; i < text.length; i++) {
     const span = document.createElement('span');
     span.textContent = text[i];
-    span.style.setProperty('--x', `${Math.random() * 900 - 100}px`);
-    span.style.setProperty('--y', `${Math.random() * 300 - 100}px`);
-    span.style.animationDelay = `${i * 0.2}s`;
+    span.setAttribute('data-char', text[i]);
+    span.style.setProperty('--x', `${Math.random() * 500 - 100}px`);
+    span.style.setProperty('--y', `${Math.random() * 500 - 100}px`);
+    span.style.animationDelay = `${i * 0.3}s`;
     title.appendChild(span);
   }
 });
