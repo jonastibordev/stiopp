@@ -867,19 +867,20 @@ footer ul {
   }
 }
 
-/* ................................................................................audió galéria minden beállítása */
+/* Audió galéria stílusai */
 .audio-item {
   position: relative;
   display: inline-block;
   margin: 5px;
   padding: 0;
-  max-width: 211px;
+  max-width: 210px;
   vertical-align: top;
+  align-items: center;
 }
 
 .audio-item img {
-  max-width: 211px; /* Beállítom a képek méretét */
-  height: auto;
+  width: 200px; /* Beállítom a képek méretét */
+  height: 160px;
   display: block;
   border-radius: 18px;
   border: 2px groove brown;
@@ -892,9 +893,11 @@ footer ul {
 }
 
 .audio-description {
+  display: none;
   text-align: left; /* Szövegközépre igazítás */
   margin-bottom: 0px;
 }
+
 .audio-description h3,
 .audio-description p {
   margin: 0px;
@@ -916,6 +919,7 @@ footer ul {
   opacity: 1;
   transition: 1s;
 }
+
 audio {
   width: 220px;
   background-color: transparent;
@@ -935,7 +939,7 @@ audio {
   }
 }
 
-/* ...............................................................................videó galéria minden beállítása */
+/* Videó galéria stílusai */
 .video-container {
   display: flex;
   flex-wrap: wrap;
@@ -944,7 +948,6 @@ audio {
 .video {
   position: relative;
   width: calc(20% - 20px);
-
   margin-right: 20px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -966,9 +969,11 @@ audio {
 }
 
 .video-description {
+  display: none;
   text-align: center; /* Szövegközépre igazítás */
   margin-bottom: 0px;
 }
+
 .video-description h3,
 .video-description p {
   margin: 1px; /* Térköz a szöveg és a kép között */
@@ -1000,6 +1005,23 @@ audio {
     width: calc(100% - 20px);
     margin-right: 0;
   }
+}
+
+/* Lenyíló gombok stílusai */
+.toggle-btn {
+  margin: 20px 0;
+  padding: 5px 10px;
+  border: none;
+  background-color: var(--accent-color);
+  opacity: 0.7;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
 }
 /* ...............................................................................tagok szekció minden beállítása */
 .members {

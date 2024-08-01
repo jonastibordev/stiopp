@@ -165,6 +165,7 @@ document.getElementById('nextButton').addEventListener('click', () => {
 });
 
 // ..........................................................................Video,  Audió galéria
+// Videó galéria
 const videos = [
   {
     src: 'https://www.youtube-nocookie.com/embed/cPaSjIPlpiY',
@@ -231,26 +232,42 @@ const videos = [
 ];
 
 const videoContainer = document.getElementById('videoContainer');
-videos.forEach((video) => {
-  videoContainer.innerHTML += `
-    <div class="video">
-  <iframe
-    width="1280"
-    height="720"
-    src="${video.src}"
-    title="${video.title}"
-    frameborder="0"
-    allow="encrypted-media; picture-in-picture"
-    referrerpolicy="strict-origin-when-cross-origin"
-    allowfullscreen
-  ></iframe>
-  <div class="video-description">
-    <h3>${video.author}</h3>
-    <p>${video.description}</p>
-  </div>
-</div>`;
+videos.forEach((video, index) => {
+  const videoElement = document.createElement('div');
+  videoElement.classList.add('video');
+  videoElement.innerHTML = `
+    <iframe
+      width="1280"
+      height="720"
+      src="${video.src}"
+      title="${video.title}"
+      frameborder="0"
+      allow="encrypted-media; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+    <button class="toggle-btn" data-index="${index}">Szerző és cím mutatása / elrejtése</button>
+    <div class="video-description">
+      <h3>${video.author}</h3>
+      <p>${video.description}</p>
+    </div>
+  `;
+  videoContainer.appendChild(videoElement);
 });
 
+document.querySelectorAll('.toggle-btn').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const index = e.target.getAttribute('data-index');
+    const description = document.querySelectorAll('.video-description')[index];
+    if (description.style.display === 'block') {
+      description.style.display = 'none';
+    } else {
+      description.style.display = 'block';
+    }
+  });
+});
+
+// Audió galéria
 const audios = [
   {
     src: './audio/05 Cortonai dícséret - Sia laudato San Francesco.mp3',
@@ -309,7 +326,7 @@ const audios = [
   },
   {
     src: './audio/Rick Róbert - Egy ágy fölött.mp3',
-    image: './pictures/audio_picture.jpg',
+    image: './pictures/audio_picture2.jpg',
     author: 'Rick Róbert',
     title: 'Egy ágy fölött',
   },
@@ -318,21 +335,36 @@ const audios = [
 ];
 
 const audioContainer = document.getElementById('audioContainer');
-audios.forEach((audio) => {
-  audioContainer.innerHTML += `
-    <div class="audio-item">
-      <img src="${audio.image}" alt="Audio kép" />
-      <div class="audio-description">
-        <h3>${audio.author}</h3>
-        <p>${audio.title}</p>
-      </div>
-      <div class="audio-controls">
-        <audio controls>
-          <source src="${audio.src}" type="audio/mpeg" />
-          A böngésződ nem támogatja az audio elemet.
-        </audio>
-      </div>
-    </div>`;
+audios.forEach((audio, index) => {
+  const audioElement = document.createElement('div');
+  audioElement.classList.add('audio-item');
+  audioElement.innerHTML = `
+    <img src="${audio.image}" alt="Audio kép" />
+    <button class="toggle-btn" data-index="${index}">Szerző és cím mutatása / elrejtése</button>
+    <div class="audio-description">
+      <h3>${audio.author}</h3>
+      <p>${audio.title}</p>
+    </div>
+    <div class="audio-controls">
+      <audio controls>
+        <source src="${audio.src}" type="audio/mpeg" />
+        A böngésződ nem támogatja az audio elemet.
+      </audio>
+    </div>
+  `;
+  audioContainer.appendChild(audioElement);
+});
+
+document.querySelectorAll('.toggle-btn').forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const index = e.target.getAttribute('data-index');
+    const description = document.querySelectorAll('.audio-description')[index];
+    if (description.style.display === 'block') {
+      description.style.display = 'none';
+    } else {
+      description.style.display = 'block';
+    }
+  });
 });
 
 // .......................................................................... Térkép beszúrása
